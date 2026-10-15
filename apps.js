@@ -1,7 +1,7 @@
 /* Catalog checked against Play Console on 2026-10-15. */
 const apps = [
 {name:'VALE KM',icon:'vale-km',category:'Finanças',live:true,package:'com.valekm.app',description:'Analise ofertas de corridas com valor por km, por hora, distância e tempo. Configure seus critérios e os custos do veículo.',privacy:'https://vale-km-privacidade.pages.dev/'},
-{name:'WiFi Security Scan',icon:'wifi',category:'Ferramentas',live:true,package:'com.joaovitormodesto.wifiguard',description:'Conheça melhor sua conexão com uma ferramenta dedicada a informações da rede Wi-Fi.'},
+{name:'WiFi Security Scan',icon:'wifi-official',extension:'webp',category:'Ferramentas',live:true,package:'com.joaovitormodesto.wifiguard',description:'Analise sua rede Wi-Fi, confira dispositivos conectados e consulte sinal, ping e latência.'},
 {name:'Beba Água BR',icon:'beba-agua',category:'Dia a dia',description:'Registre sua ingestão de água e acompanhe sua rotina de hidratação.'},
 {name:'Calcula BR',icon:'calcula',category:'Ferramentas',description:'Cálculos e ferramentas práticas para resolver as contas do dia a dia.'},
 {name:'Caneta em Dia BR',icon:'caneta',category:'Dia a dia',description:'Um diário pessoal para organizar registros, aplicações, alimentação e observações da sua rotina.',privacy:'caneta-em-dia-br-privacidade.html'},
@@ -22,7 +22,7 @@ const visible=apps.filter(app=>(activeFilter==='Todos'||app.category===activeFil
 grid.replaceChildren(...visible.map(app=>{
 const article=document.createElement('article');article.className='app-card';
 const top=document.createElement('div');top.className='app-card-top';
-const image=document.createElement('img');image.src=`assets/${app.icon}.png`;image.alt='';image.width=56;image.height=56;image.loading='lazy';
+const image=document.createElement('img');image.src=`assets/${app.icon}.${app.extension||'png'}`;image.alt='';image.width=56;image.height=56;image.loading='lazy';
 const status=document.createElement('span');status.className=`status ${app.live?'live':'test-status'}`;status.textContent=app.live?'Disponível':'Em testes';top.append(image,status);
 const title=document.createElement('h3');title.textContent=app.name;
 const description=document.createElement('p');description.textContent=app.description;
